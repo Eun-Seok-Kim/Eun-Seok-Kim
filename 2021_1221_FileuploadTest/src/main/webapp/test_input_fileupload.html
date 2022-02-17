@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script type="text/javascript">
+function send(f) {
+	var title = f.title.value.trim();
+	var photo = f.photo.value;
+	
+	if(title==''){
+		alert('제목을 입력하세요');
+		f.title.value='';
+		f.titl.focus();
+		return;
+	}
+	if(photo==''){
+		alert('사진을 선택 하세요');
+		return;
+	}
+	f.action="upload.do";
+	f.submit();
+}
+
+</script>
+</head>
+<body>
+<!-- file upload시 설정사항 
+	1.전송방식 : POST
+	2.전송타입 : enctype='multipart/form-data'
+	3.form요소의 type='file'
+-->
+<form method="POST" enctype="multipart/form-data">
+	제목:<input name ="title"><br><br>
+	사진:<input type="file" name="photo"><br><br>
+	<input type="button" value="전송" onclick="send(this.form);">
+</form>
+</body>
+</html>

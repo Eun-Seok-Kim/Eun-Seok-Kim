@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>Insert title here</title>
+		<style type="text/css">
+		#disp
+		{
+		width : 230px;
+		height:  40px;
+		background: black;
+		color: 		white;
+		font-size:   30px;
+		font-weight: bold;
+		}		
+		span{
+		/* 가로배치 + 크기조정가능 */
+		display: inline-block;
+		
+		}
+		#span_hour{
+		background: black;
+		color	: white;
+		width	: 50px;
+		height	: 50px;
+		font-size:   10px;	
+		}
+		#span_colon1{
+		color: red;
+		background: gray;
+
+		font-size:   30px;
+		}
+		#span_colon2{
+		color: green;
+		background: yellow;
+	
+		font-size:   30px;
+		}
+		
+		
+		
+		</style>
+	<script type="text/javascript">
+		/* 
+			setTimeout(함수명,시간);	//1회만 호출
+			setInterval(함수명,시간);	//지정 시간 가격만다 지소적 호출, 타이머 해제 전까지
+			clearInterval(타이머);		//타이머 해지
+			함수명 : 함수명 또는 "함수명();"
+			시  간 : 1/1000초 단위 
+		*/
+		setInterval(timer_proc, 500);
+		//setInterval(timer_proc, 100);
+		
+		var colon = true;
+			//callback함수 : 시스템에 의해서 자동 호출되는 함수
+		var am_pm = "오후";
+			
+		function timer_proc(){
+			//console.log("---");
+			var today = new Date();//현재 시스템 날짜 구하기
+			//시분초 구하기
+			var hour   = today.getHours()%12 +"";
+			var minute = today.getMinutes() +"";
+			var second = today.getSeconds() +"";
+			
+			
+			
+			//문자열 길이 체크
+			console.log(second.length);
+			if(hour.length==1){
+				hour = "0" + hour;
+			}
+			if(minute.length==1){
+				minute = "0" + minute;
+			}
+			if(second.length==1){
+				second = "0" + second;
+			}
+			
+			
+			if(today.getHours()<12){
+				am_pm = "오전";
+			}else
+				am_pm = "오후"
+			
+			
+			
+			
+			
+			
+			
+			
+			var str_time = am_pm + hour + ":" + minute + ":" + second;
+			
+			//시가 1자리면 앞에 hour = "0 " hour ;
+			//분이 1자리면 앞에 minute = "0 " minute ;
+			//초가 1자리면 앞에 second = "0 " second ;
+						
+			
+		
+			
+			console.log(str_time);
+		
+			// id=disp인 Element정보를 구한다.
+			var disp = document.getElementById("disp");
+			
+			//Javascript에서 CSS설정
+			//object명.attribute명.property명 = '값'
+			disp.style.color = colon ? 'white'  : 'green';
+			
+			//Javascript에서 크기/위치 정보는 단위까지 기록해야함.
+			//disp.style.width = colon ? '180px'  : '250px';
+			
+			colon = !colon;
+			
+			
+			//span출력
+			disp.innerHTML = str_time;
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			document.getElementById("span_hour").innerHTML = am_pm + hour;
+			document.getElementById("span_colon1").innerHTML = ":";
+			document.getElementById("span_minute").innerHTML = minute;
+			document.getElementById("span_colon2").innerHTML = ":";
+			document.getElementById("span_second").innerHTML = second;
+			
+			//콜록만 색변경
+			span_colon1.style.background = colon ? 'gray' : 'red';
+			span_colon2.style.background = colon ? 'yellow' : 'blue';
+		}
+
+	</script>		
+	</head>
+<body>
+
+
+<div id="disp"></div>
+<!-- span : inline 요소 -->
+
+<span id="span_hour"></span>
+<span id="span_colon1"></span>
+<span id="span_minute"></span>
+<span id="span_colon2"></span>
+<span id="span_second"></span>
+
+</body>
+</html>

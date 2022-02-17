@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>Insert title here</title>
+<script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+		<script type="text/javascript">
+		
+		function del() {
+			Swal.fire({
+				  title: '정말 삭제 하시겠습니까?',
+				  text: "삭제 후 복구가 안됩니다.",
+				  icon: 'warning',
+				  showCancelButton: true,
+				  confirmButtonColor: '#3085d6',
+				  cancelButtonColor: '#d33',
+				  confirmButtonText: '예.',
+				  cancelButtonText : '아니오.'
+				}).then((result) => {
+				  if (result.isConfirmed) {
+				    Swal.fire(
+				      '삭제 완료',
+				      '삭제 되었습니다.',
+				      'success'
+				    )
+				  }
+				})
+		}
+		
+		
+		
+		
+		</script>
+	</head>
+<body>
+<input type="button" value="삭제" onclick="del();">
+</body>
+</html>

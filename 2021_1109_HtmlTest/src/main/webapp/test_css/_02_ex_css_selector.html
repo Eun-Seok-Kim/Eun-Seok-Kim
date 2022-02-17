@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>Insert title here</title>
+<!-- 선언적 방식의 CSS -->		
+<style type="text/css">
+	/* element(tag name) selector */
+	p{
+		width:200px;
+		height : 50px;
+		border: 1px solid black;
+	}
+
+/* id selector(대상) : #od */
+	p#p1{
+		width:200px;
+		height : 30;
+		background: black;
+		color: white;
+	}
+
+/* class selector : .class_name */
+.pstyle{
+		color: blue;
+	}
+
+/* multi selector */
+/* 태그이름, id, selecrot 등 사용가능 */
+div,span,h1{ 
+	border: 1px dotted blue;
+
+}
+
+
+</style>
+	</head>
+<body>
+	<p>element style</p>
+	<p id="p1">id selector</p>
+	<p class="pstyle">class selector</p>
+	<p class="pstyle">class selector</p>
+	<h1>headLine Tag</h1>
+	<div class="pstyle">class selector pstyle를 적용 받는다</div>
+	<br>
+	<span>Inline 요소</span>
+</body>
+</html>

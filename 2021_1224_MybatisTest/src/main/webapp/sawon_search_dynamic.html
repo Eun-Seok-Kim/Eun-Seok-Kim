@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+<head>
+<!-- Bootstrap 3버젼 -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+<!-- SweetAlert2 사용설정 -->
+<script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script type="text/javascript">
+
+function search() {
+	var deptno = $("#deptno").val();
+	var sajob = $("#sajob").val();
+	var year = $("#year").val();
+	$.ajax({
+		
+		url : "sawon/dynamic_list.do",
+		data : {"deptno":deptno, "sajob":sajob, "year":year},
+		success : function(result_data){
+			$("#disp").html(result_data);
+		},
+		error : function(err){
+			alert(err.gesponseText);
+		}
+		
+	});
+	
+}
+
+$(document).ready(function(){
+	for(var i=1984; i<=2005; i++){
+	$("#year").append("<option value='"+i+"'>"+i+"</option>");
+	}
+});
+</script>
+</head>
+<body>
+<div style="text-align: center">
+부서번호 : 
+<select id="deptno">
+	<option value="0">전체</option>
+	<option value="10">10번</option>
+	<option value="20">20번</option>
+	<option value="30">30번</option>
+	<option value="50">40번</option>		
+</select>
+&nbsp;&nbsp;&nbsp;
+직위 : 
+<select id="sajob">
+	<option value="all">전체</option>
+	<option value="부장">부장</option>
+	<option value="과장">과장</option>
+	<option value="대리">대리</option>
+	<option value="사원">사원</option>
+	<option value="알바">알바</option>
+</select>
+&nbsp;&nbsp;&nbsp;
+입사년도 :
+&nbsp;&nbsp;&nbsp;
+<select id="year">
+	<option value="0">전체</option>	
+</select>
+
+&nbsp;&nbsp;&nbsp;
+<input type="button" value="검색" onclick="search();">
+<hr>
+<div id="disp"></div>
+</div>
+</body>
+</html>

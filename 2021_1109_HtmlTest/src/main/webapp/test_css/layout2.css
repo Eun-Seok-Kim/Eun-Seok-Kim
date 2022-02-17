@@ -1,0 +1,44 @@
+@charset "UTF-8";
+
+/* 모든 Element의 기본 마진을 제거 */
+* { margin : 0;}
+
+
+
+
+#main_box{
+	width: 800px;
+	height: 600px;
+	
+	background: #cccccc;	
+	margin: auto; /* 부모 위치 기준 중앙배치 */
+}
+#header{
+	
+	width: 100%; /* 생략하면 부모의 100% */
+	height:100px;
+	background: #ffcccc;
+}
+#aside{
+	width: 30%;
+	min-height: 400px;
+	background: #ffffcc;
+	/* 부유 속성 들어올리기 */
+	float:left;
+	
+}
+#content{
+	width: 70%; /* 생략하면 부모의 100% */
+	min-height: 400px;;
+	height : auto;
+	background: #ccffcc;
+	/* 부유 속성 들어올리기 */
+	float:left;
+}
+#footer{
+	width: 100%; /* 생략하면 부모의 100% */
+	height: 100px;
+	background: #ffccff;
+	/* 부유속성 해제 */
+	clear: both; /* left,right 모두 해지 */
+}

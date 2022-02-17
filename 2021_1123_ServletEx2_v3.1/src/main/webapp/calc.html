@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+	<head>
+	<meta charset="UTF-8">
+	<title>Insert title here</title>
+		<script type="text/javascript">
+		
+		var regular_number =  /^[0-9]+$/;
+
+		function send(f) 
+		{
+			var su1 = f.su1.value;
+			var su2 = f.su2.value;
+			
+			if(regular_number.test(su1)==false)
+			{
+				alert("su1 : 숫자만 입력하세요");
+				f.su1.value="";
+				f.su1.focus();			
+				return;
+			}
+			if(regular_number.test(su2)==false)
+			{
+				alert("su2 : 숫자만 입력하세요");
+				f.su2.value="";
+				f.su2.focus();
+				return;
+			}
+					//전송전 데이터 값 체크		
+		
+		f.submit(); //form의 action객체로 form data를 전송
+		}	
+		</script>
+	</head>
+<body>
+<hr>
+	계산하고 싶은 수 2개를 입력하세요
+<hr>
+	<form action="calc.do">
+	수1: <input name="su1"/><br>
+	수2: <input name="su2"/><br>
+	<input type="button" value="계산해줘" onclick="send(this.form);"/>
+
+	</form>
+
+</body>
+</html>

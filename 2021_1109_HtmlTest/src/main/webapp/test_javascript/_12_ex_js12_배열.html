@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>Insert title here</title>
+		<script type="text/javascript">
+			var sido_array = ['서울','경기','인천','대전'];
+			sido_array[5] = '제주';
+			document.write("sido_array's length="+sido_array.length +"<br>");
+			document.write("sido_arrat[0]=" + sido_array[0] + "<br>");
+			
+			document.write("----[전체]----<br>");
+			for(var i=0; i<sido_array.length; i++){
+				document.write("sido_arrat["+i+"]=" + sido_array[i] + "<br>");	
+			}
+			//동적배열
+			
+			var fruit_array = new Array();
+			fruit_array[0]="사과";
+			fruit_array[1]="참외";
+			fruit_array[2]="수박";
+			fruit_array[3]="딸기";
+			
+			fruit_array[fruit_array.length] = "포도"
+			
+			document.write("---[과일목록]:첨자---<br>");
+			for(var i=0;i< fruit_array.length;i++){
+				document.write("frtir_array["+i+"]=" + fruit_array[i] + "<br>");
+			}			
+			document.write("---[과일목록]:forEach---<br>");
+			fruit_array.forEach(fn_fruit);
+			
+			function fn_fruit(fruit) {
+				document.write(fruit + "<br>");
+			}
+			
+		</script>
+	</head>
+<body>
+
+</body>
+</html> 

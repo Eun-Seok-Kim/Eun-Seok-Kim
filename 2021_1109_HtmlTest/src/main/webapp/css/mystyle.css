@@ -1,0 +1,16 @@
+@charset "UTF-8";
+
+div#nation_song1{
+	width: 300px;
+	height: 200px;
+	border: 1px solid blue;
+	
+	/* div 박스를 기준으로 외부간격 */
+	margin: auto; /* auto하면 중앙배치 */
+	
+	/* div 박스의 내부 간격 */
+	padding: 20px;
+	
+	/* 		     x	 y  block color		 */
+	box-shadow: 2px 2px 3px black;
+}

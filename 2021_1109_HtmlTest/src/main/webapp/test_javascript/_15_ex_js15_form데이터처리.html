@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>Insert title here</title>
+		<script type="text/javascript">
+			function send1() {
+				//document내에 form을 관리하는 배열객체가 존재한다(기본) : forms
+				var f   = document.forms[0];
+				//각 컨트롤 값을 공백제거후 읽어온다.
+				var id  = f.id.value.trim();
+				var pwd = f.pwd.value.trim();
+				
+				if(id==" "){
+					alert("아이디를 입력하세요");
+					f.id.value = ''; //값비우기
+					f.id.focus();	 //입력 포커스 지정
+					return;
+				}
+				if(pwd==" "){
+					alert("비밀번호를 입력하세요");
+					f.id.value = ''; //값비우기
+					f.id.focus();	 //입력 포커스 지정
+					return;
+				}
+				//전송대상 지정
+				f.action = "login.do";
+				//전송 : form데이터를 전송하는 함수
+				f.submit();
+			}
+			function send2() {
+				//document내에 ff 네임을 가진 form 을 나타낸다
+				var f   = document.ff;
+				//각 컨트롤 값을 공백제거후 읽어온다.
+				var id  = f.id.value.trim();
+				var pwd = f.pwd.value.trim();
+				
+				if(id==" "){
+					alert("아이디를 입력하세요");
+					f.id.value = ''; //값비우기
+					f.id.focus();	 //입력 포커스 지정
+					return;
+				}
+				if(pwd==" "){
+					alert("비밀번호를 입력하세요");
+					f.id.value = ''; //값비우기
+					f.id.focus();	 //입력 포커스 지정
+					return;
+				}
+				//전송대상 지정
+				f.action = "login.do";
+				//전송 : form데이터를 전송하는 함수
+				//자바스크립트에서는 함수 호출시 () 를 반드시 붙여야함
+				// 안붙이면 Error는 안나지만 동작을 안함
+				f.submit();
+			}
+			function send3(f) {
+			
+				//각 컨트롤 값을 공백제거후 읽어온다.
+				var id  = f.id.value.trim();
+				var pwd = f.pwd.value.trim();
+				
+				if(id==" "){
+					alert("아이디를 입력하세요");
+					f.id.value = ''; //값비우기
+					f.id.focus();	 //입력 포커스 지정
+					return;
+				}
+				if(pwd==" "){
+					alert("비밀번호를 입력하세요");
+					f.id.value = ''; //값비우기
+					f.id.focus();	 //입력 포커스 지정
+					return;
+				}
+				//전송대상 지정
+				f.action = "login.do";
+				//전송 : form데이터를 전송하는 함수
+				//자바스크립트에서는 함수 호출시 () 를 반드시 붙여야함
+				// 안붙이면 Error는 안나지만 동작을 안함
+				f.submit();
+			}
+			function send4(f) {
+				
+				//각 컨트롤 값을 공백제거후 읽어온다.
+				var id  = f.id.value.trim();
+				var pwd = f.pwd.value.trim();
+				
+				if(id==" "){
+					alert("아이디를 입력하세요");
+					f.id.value = ''; //값비우기
+					f.id.focus();	 //입력 포커스 지정
+					return;
+				}
+				if(pwd==" "){
+					alert("비밀번호를 입력하세요");
+					f.id.value = ''; //값비우기
+					f.id.focus();	 //입력 포커스 지정
+					return;
+				}
+				//전송대상 지정
+				//f.action = "login.do";
+				//전송 : form데이터를 전송하는 함수
+				//자바스크립트에서는 함수 호출시 () 를 반드시 붙여야함
+				// 안붙이면 Error는 안나지만 동작을 안함
+				f.submit();
+			}
+		
+		</script>
+	</head>
+<body>
+	<form name="ff"> <!-- 서버로 데이터를 넘기기 위한 form을 씌움 -->
+		<table border ='1'>
+			<tr>
+				<th>아이디</th>
+				<td><input name="id"></td>
+			</tr>
+					<tr>
+				<th>비밀번호</th>
+				<td><input tyrp ="password" name="pwd"></td>
+			</tr>
+			<tr>
+				<td colspan="2" align="center">
+					<input type="button" value="로그인(방법1)(잘안쓰임)" onclick="send1();">
+					<input type="button" value="로그인(방법2)(잘안쓰임)" onclick="send2();">
+					<!-- this.form = this를 소유하고 있는 form을 나타낸다 -->
+					<input type="button" value="로그인(방법3)(자주쓰임)" onclick="send3(this.form);">
+				</td>
+			</tr>
+			<tr>
+				<td colspan="2" align="center">
+					<!-- ###주의###
+					<button>, <input type="image"> onclick시 자동으로 onsubmit()이 호출된다 
+					조치 : onclick 이벤트 종료시 onsubmit()를 못하는 정보를 전달
+						 return ralse; 
+					-->
+					<button onclick="send4(this.form); return false;">로그인(button)</button>
+					<input type="image" src ="../image/button.PNG" onclick="send4(this.form); return false;">
+					<!-- 주의사항 
+						this.form을 사용할수 있는 Element 는 form Element이어야함
+						imag tag 는  form Element가 아니므로 사용못함 return false; 필수
+						<img src="../image/button.PNG" onclick="send4(this.form);">
+					-->
+					
+				</td>
+			</tr>
+			
+			
+			
+			
+			
+		</table>
+	</form>
+</body>
+</html>

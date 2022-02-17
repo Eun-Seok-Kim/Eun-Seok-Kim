@@ -1,0 +1,42 @@
+@charset "UTF-8";
+
+ul#main_menu{
+	/* 리스트 처음 시작점 지우기 */
+	list-style: none;
+	
+}
+
+/* 자식 엘리먼트(요소)을 지정하는 방식
+	부모요소 > 자식요소 : 하위 1개만
+	부모요소   자식요소 : 하위리스트 전체
+*/
+
+ul#main_menu > li{
+	/* block -> inline-blokc로 변경(수평배치) */
+	display: inline-block;
+	
+}
+
+ul#main_menu > li > a{
+/* a tag text-decoration delete */	
+	text-decoration: none;
+	border: 1px solid blue;
+	display: inline-block;
+	width: 100px;
+	/* 텍스트 가운데 정렬 */
+	text-align:center;	
+	/* 외부간격 설정 */
+	margin-left: 40px;
+	margin-top : 50px;
+	
+	/*font지정 */
+	font-size: 8pt;
+	font-weight: bold;
+	color: #3ac53a;
+}
+ul#main_menu > li > a:hover{
+	border:1px solid black;
+	color: green;
+	box-shadow: 1px 1px 2px black;
+	
+}

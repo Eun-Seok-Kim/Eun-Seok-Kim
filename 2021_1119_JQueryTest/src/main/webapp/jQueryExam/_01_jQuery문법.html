@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>Insert title here</title>
+		<!-- ONLINE으로 jQuery 참조 -->
+	<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+		
+		<script type="text/javascript">
+/* 		jQuery(selector).속성(처리함수(){}); 
+ * 		$(selector).속성(처리함수(){});
+ */
+ 
+ 		var init = function() {alert('초기화함수호출');};
+ 		function init2(){alert('초기화함수호출2');};
+ 		jQuery(document).ready(function(){
+ 			//alert("document ready call");
+ 			console.log("1.jQuery(document).ready(function(){})")
+ 		});
+ 		
+ 		//jQuery -> $ 로 치환시켜서 사용
+ 		$(document).ready(function(){
+ 			console.log("2.$(document).ready(function(){})")
+ 		});
+ 		//초기화 과정에서 selector생략가능
+ 		$(function(){
+ 			console.log("3.$(function(){})")
+ 		});
+		</script>
+	</head>
+<body>
+
+</body>
+</html>

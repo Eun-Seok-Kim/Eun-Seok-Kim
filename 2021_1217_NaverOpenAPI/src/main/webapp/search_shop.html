@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+<head>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script type="text/javascript">
+	$(document).ready(function(){
+		$("#bt_find").click(function(){
+			search_product();
+		});
+		$("#_p_page").change(function(){
+			search_product();
+		});
+	});
+	
+	//상품 검색함수
+	function search_product(){
+		var p_name = $("#p_name").val().trim();
+		if(p_name==''){
+			alert('상품명을 입력하세요');
+			$("#p_name").val("");
+			$("#p_name").focus;
+			return;
+		}
+		//검색범위
+		var p_page 	  = parseInt($("#p_page").val());
+		var p_display = parseInt($("#p_display").val());
+		
+		var start = (p_page-1) * p_display +1;
+		
+		
+		//ajax로 요청
+		
+		$.ajax({
+			url : 'product/list.do',
+			//list.do?p_name=노트북&start=1&display=10
+			data : {'p_name':p_name, 
+					'start':start,
+					'display' : p_display},
+			success : function(result_data){
+				$("#disp").html(result_data);
+				
+			},
+			error : function(err){
+				alert(err.responseText)
+			}
+		});
+	}
+</script>
+</head>
+<body>
+<div style="text-align: center;">
+	상품명 : <input id="p_name">
+			 <input id ="bt_find"type="button" value="검색">
+	<br>페이지 : <select id="p_page">
+				<option value="1">1</option>
+				<option value="2">2</option>
+				<option value="3">3</option>
+				<option value="4">4</option>
+				<option value="5">5</option>
+				<option value="6">6</option>
+				<option value="7">7</option>
+				<option value="8">8</option>
+				<option value="9">9</option>
+				<option value="10">10</option>
+			</select>
+	<br>페이지당 조회건수 : <select id="p_display">
+					<option value="10">10</option>
+					<option value="20">20</option>
+					<option value="30">30</option>
+					<option value="40">40</option>
+					<option value="50">50</option>
+					<option value="60">60</option>
+					<option value="70">70</option>
+					<option value="80">80</option>
+					<option value="90">90</option>
+					<option value="100">100</option>
+			</select>
+</div>
+<hr>
+<div id="disp">
+</div>
+</body>
+</html>

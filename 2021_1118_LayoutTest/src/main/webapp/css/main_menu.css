@@ -1,0 +1,31 @@
+@charset "UTF-8";
+
+#main_menu{
+	list-style: none;
+}
+#main_menu > li {
+	/* block 속성 유지하면서 한줄로  */
+	display: inline-block;	
+}
+#main_menu > li > a{
+	/* a tag = default inline 요소 */
+	/* inline-block선언하여 크기조정 가능 */
+	display: inline-block;
+	/* 밑줄 빼기 */
+	text-decoration: none;
+	width: 120px;
+	/* border: 1px solid gray; */
+	text-align: center;
+	margin-left: 90px;
+	margin-top: 20px;
+	/* font */
+	font-size: 25px;
+	font-weight: 80px;
+	font-family: 돋움체;
+	color: #2aeaed;
+}
+/* a tag 메뉴에 마우스 올렸을때 설정 */
+#main_menu > li > a:hover{
+	color: black;
+	
+}

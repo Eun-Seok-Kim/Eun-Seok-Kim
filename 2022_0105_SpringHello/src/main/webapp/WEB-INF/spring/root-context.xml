@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans https://www.springframework.org/schema/beans/spring-beans.xsd">
+	
+	<!-- Root Context: defines shared resources visible to all other web components -->
+		
+	<!--1.생성자를 통한 초기화로 객체 생성되도록 등록-->
+	<!-- Constructor Injection:생성자를 통한 외부값 주입방법 -->
+	<!--PersonVo p1 = new PersonVo("일길동",20,"010-1111-1234")-->
+	<bean id="p1" class="vo.PersonVo">
+		<constructor-arg value="일길동" index="0"/><!-- index 는 안주면 위에서부터 주입-->
+		<constructor-arg value="20" index="1"/><!--type = 변수속성-->
+		<constructor-arg value="010-1111-1234" index="2"/>
+	</bean>
+	
+	<!-- setter Injection : setter를 통한 외부값 주인방법-->
+	<bean id="p2" class="vo.PersonVo">
+		<property name="name" value="이길동"/>
+		<property name="age" value="20"/>
+		<property name="tel" value="010-2222-1234"/>
+	</bean>
+ 	
+	<!-- 3.외부객체를 미리 생성후 Ingection -->
+	<!-- String nameBean = new String("삼길동") -->
+	<bean id="nameBean" class="java.lang.String" >
+		<constructor-arg value="삼길동"/>	
+	</bean>	
+	<bean id="ageBean" class="java.lang.Integer">
+		<constructor-arg value="30"/>
+	</bean>	
+	<bean id="telBean" class="java.lang.String">
+		<constructor-arg value="010-3333-1234"/>
+	</bean>
+
+<!-- 	Constructon Injection	 -->
+	<bean id="p3" class="vo.PersonVo">
+		<constructor-arg ref="nameBean"/>
+		<constructor-arg ref="ageBean"/>
+		<constructor-arg ref="telBean"/>
+	</bean>
+	
+<!-- 	Setter Injection -->
+	<bean id="p4" class="vo.PersonVo" scope="singleton">
+		<property name="name" ref="nameBean"/>
+		<property name="age" ref="ageBean"/>
+		<property name="tel" ref="telBean"/>
+	</bean>	
+	
+	<!-- 
+	scope="singleton" : 생략시 기본
+	scope="prototype" : single-ton이 아닌 요청시마다 객체를 생성하도록 생성 
+	
+	-->
+	<bean id="p5" class="vo.PersonVo" scope="prototype"> 
+	
+	</bean>
+</beans>

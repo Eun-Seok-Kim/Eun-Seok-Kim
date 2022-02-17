@@ -1,0 +1,150 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="board">
+     
+     <!-- 전체조회 -->
+     <select id="board_list"  resultType="vo.BoardVo">
+          select * from board  order by b_ref desc, b_step asc
+     </select>
+     
+     <!-- 조건별/페이지별 조회 -->
+     <select id="board_condition_list"  parameterType="Map" resultType="vo.BoardVo">
+          select * from
+		  (
+				select 
+				  rank() over(order by b_ref desc,b_step asc) as no,
+				  (select nvl(count(*),0) from comment_tb where b_idx=b.b_idx) as comment_count,
+				  b.*
+				from 
+				  ( 
+				     select * from board
+				     <trim prefix="where"  prefixOverrides="or">
+			             <if test="name!=null">
+			                 m_name like '%' || #{ name } || '%'
+			             </if>
+			             
+			             <if test="subject!=null">
+			                 or b_subject  like '%' || #{ subject } || '%'
+			             </if>
+			             
+			             <if test="content!=null">
+			                 or b_content  like '%' || #{ content } || '%'
+			             </if>
+			         </trim>
+				   ) b
+		   )
+		   where no between #{ start }  and  #{ end }  
+     </select>
+     
+     <!-- 검색조건별 게시물수 -->
+     <select id="board_rowtotal"  parameterType="Map"  resultType="int">
+     
+         select nvl(count(*),0) from board
+         <trim prefix="where"  prefixOverrides="or">
+             <if test="name!=null">
+                 m_name like '%' || #{ name } || '%'
+             </if>
+             
+             <if test="subject!=null">
+                 or b_subject  like '%' || #{ subject } || '%'
+             </if>
+             
+             <if test="content!=null">
+                 or b_content  like '%' || #{ content } || '%'
+             </if>
+         </trim>
+        
+     </select>
+     
+          
+     <!-- b_idx에 해당되는 게시물 1건 -->
+     <select id="board_one"  parameterType="int"  resultType="board">
+          select * from board where b_idx=#{ b_idx }
+     </select>
+     
+     <!-- 조회수 증가 -->
+     <update id="board_update_readhit"  parameterType="int">
+          update board set b_readhit = b_readhit + 1 
+          where  b_idx=#{ b_idx }
+     </update>
+     
+     
+     
+     <!-- 새글쓰기 -->
+     <insert id="board_insert"  parameterType="vo.BoardVo">
+         insert into  board values(
+                          seq_board_b_idx.nextVal, 
+                          #{ b_subject },
+                          #{ b_content },
+                          #{ b_ip },
+                          sysdate,
+                          default,
+                          default,
+                          #{ m_idx },
+                          #{ m_name },
+                          seq_board_b_idx.currVal,
+                          0,
+                          0
+                         )
+     
+     </insert>
+     
+     <!-- 답글쓰기 -->
+     <insert id="board_reply"  parameterType="vo.BoardVo">
+         insert into  board values(
+                          seq_board_b_idx.nextVal, 
+                          #{ b_subject },
+                          #{ b_content },
+                          #{ b_ip },
+                          sysdate,
+                          default,
+                          default,
+                          #{ m_idx },
+                          #{ m_name },
+                          #{ b_ref },
+                          #{ b_step },
+                          #{ b_depth }
+                         )
+     
+     </insert>
+     
+     
+     <!-- b_step증가  parameter: baseVo(기준글)-->
+     <update id="board_update_step"  parameterType="vo.BoardVo">
+      
+          update board  set b_step = b_step + 1
+          where  b_ref = #{ b_ref } and  b_step > #{ b_step }
+     
+     </update>
+     
+     
+     <!-- 사용유무설정(사용하지 않겠끔) -->
+     <update id="board_update_use_yn"  parameterType="int">
+          update board set b_use_yn = 'n' 
+          where  b_idx=#{ b_idx }     
+     </update>
+     
+     <!-- 수정하기 -->
+     <update id="board_update"  parameterType="vo.BoardVo">
+          update board set b_subject = #{ b_subject},
+                           b_content = #{ b_content},
+                           b_ip      = #{ b_ip },
+                           b_regdate = sysdate 
+          where b_idx=#{ b_idx }
+          
+     </update>
+
+</mapper>
+
+
+
+
+
+
+
+
+
+
+
+

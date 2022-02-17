@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html>
+<head>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script type="text/javascript">
+	
+	var latitude;	//위도
+	var longtitude;//경도
+	
+	function init_coord(){
+		navigator.geolocation.getCurrentPosition(function(pos) {
+			latitude  = pos.coords.latitude;
+		    longitude = pos.coords.longitude;
+		    //alert("현재 위치는 : " + latitude + ", "+ longitude);
+		});
+	}
+	$(document).ready(function(){
+		init_coord();
+		//검색버튼 클릭시
+		$("#bt_search").click(function(){			
+			$("#page").val(1);
+			$("#size").val(5);
+			$("#range").val(1000);
+			search_local();
+		});
+		//페이지 수 변경시
+		$("#page").change(function(){			
+			search_local();
+		});
+		//페이지별개수 변경시
+		$("#size").change(function(){			
+			search_local();
+		});
+		$("#range").change(function(){			
+			search_local();
+		});
+		
+
+	
+		function search_local(){			
+			var search = $("#search").val().trim();
+			var page = $("#page").val();
+			var size = $("#size").val();
+			var range= $("#range").val();
+			if(search==''){
+				alert("검색어를 입력하세요.");
+				$("#search").val("");
+				$("#search").focus();
+				return;
+			}
+		//ajax이용하여 요청
+		$.ajax({
+			url			: 'daum_search.do',
+			data		: {'search':search,
+						   'latitude': latitude,
+						   'longitude': longitude,
+						   'page':page,
+						   'size':size,
+						   'range':range
+						   },
+			success		: function(result_data){
+				$("#disp").html(result_data);
+			},
+			error		: function(err){
+				alert(err.responseText);
+			}
+		});
+	}
+	});
+	
+</script>
+</head>
+<body>
+<div style="margin-top:20px; text-align: center;">
+	검색어:<input id="search">
+		   <input type="button" value="검색" id="bt_search">
+		   &nbsp;&nbsp;&nbsp;&nbsp;
+	페이지:<select id="page">
+		  		<option value="1">1</option>
+		  		<option value="2">2</option>
+		  		<option value="3">3</option>
+		  		<option value="4">4</option>
+		  		<option value="5">5</option>
+		  		<option value="6">6</option>
+		  		<option value="7">7</option>
+		  		<option value="8">8</option>
+		  		<option value="9">9</option>
+		  		<option value="10">10</option>
+		  </select>
+		   &nbsp;&nbsp;&nbsp;&nbsp;
+	1페이지당 게시물 수 :
+			<select id="size">
+		  		<option value="5">5</option>
+		  		<option value="10">10</option>
+		  		<option value="15">15</option>
+		  </select>
+		   &nbsp;&nbsp;&nbsp;&nbsp;
+	검색 반경(미터M)
+		<select id="range">
+		  		<option value="1000">1000</option>
+		  		<option value="1500">1500</option>
+		  		<option value="2500">2500</option>
+		  		<option value="4500">4500</option>
+		  		<option value="10000">10000</option>
+		  </select>
+		
+</div>
+<hr>
+<div id="disp"></div>
+</body>
+</html>

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script type="text/javascript">
+
+
+//윈도우 초기화 이벤트
+window.onload = function() {
+document.getElementById("disp").innerHTML = "안녕하세요";
+};
+
+//키보드 이벤트 처리
+window.onkeydown = function(event) {
+	var key =event.keyCode;
+	console.log(key)
+	if(key==27){
+		self.close();
+	}
+};
+window.onkeyup = function(evenet) {};
+//마우스 이벤트 처리
+window.onmousedown  = function(){};
+window.onmouseup  = function(){};
+</script>
+</head>
+<body>
+<div id="disp">
+
+
+
+</div>
+
+</body>
+</html>

@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script type="text/javascript">
+/* 
+ 	JSON(Javascript Object Notation)
+	1. 참조 사이트 http://www.json.org/
+ 	2. 자바스크립트에서 객체 표현방법
+	3. {"변수명1":값1 , "변수명2":"값2" ....}
+		  key1   : value1,  key2 : value2  ...... 
+		key : 문자열
+		value : 객체(문자열, 배열,JSON)
+		  
+ */
+//	JSON을 이용해서 개인정보를 나타내는 객체를 생성
+	var p = {"name":"일길동","age":"30", "tel":"010-111-1234" };
+
+ 	//dot표현방식
+	document.write("p's name = s" + p.name +"<br>");
+	//bracket 방식
+	document.write("p's age = " + p['age'] + "<br>");
+
+	document.write("p's tel = " + p.tel +"<br>");
+
+	// JSON 중첩데이터
+
+	var p2 = {
+				"name" : {
+							"full_name" : "홍길동",
+							"family_name" : "홍",
+							"given_name" : "길동"
+						},
+				"age" : "30",
+				"tel" : {
+							"home_tel" : "02-111-1234",
+							"smart_tel" : "010-123-4567"
+						},
+				"hobby" : [ "낚시", "독서", "영화" ]
+			};
+	document.write("full_name				 : "+ p2.name.full_name + "<br>");
+	document.write("family_name 	 	 	 : " + p2.name.family_name +"<br>");
+	document.write("given_name.dot 			 : " + p2.name.given_name +"<br>");		 // dot표현방식
+	document.write("given_name.bracket 		 : " + p2['name']['given_name'] +"<br>");  // bracket 방식
+	
+	document.write("age 					 : " + p2.age +"<br>");
+	
+	document.write("home_tel 				 : " + p2.tel.home_tel +"<br>");
+	document.write("smart.tel 				 : " + p2.tel.smart_tel +"<br>");
+	
+	document.write("hobby 					 : ");
+	//취미
+	for(var i=0;i<p2.hobby.length;i++)
+	document.write(p2.hobby[i] +" ");
+	
+	
+	
+	
+	
+</script>
+</head>
+<body>
+
+</body>
+</html>

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>Insert title here</title>
+	</head>
+	
+	<script type="text/javascript">
+	function send_get(f) {
+		f.method = "GET";			//전송방식 get지정
+		f.action = "LifeCycle.do";	//전송대상
+		f.submit();					//서버호출함수
+		
+	}
+	function send_post(f) {
+		f.method = "POST";			//전송방식 get지정
+		f.action = "LifeCycle.do";	//전송대상
+		f.submit();					//서버호출함수
+		
+	}
+	
+	
+	</script>
+<body>
+	<form>
+		<input type="button" value="GET 요청하기" onclick="send_get(this.form);">
+		<input type="button" value="POST 요청하기" onclick="send_post(this.form);">
+	
+	</form>
+</body>
+</html>

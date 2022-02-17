@@ -1,0 +1,25 @@
+@charset "UTF-8";
+
+#main_menu{
+	list-style: none;
+}
+#main_menu > li{
+	display: inline-block;
+}
+#main_menu > li > a{
+	display: inline-block;
+	text-decoration: none;
+	
+	text-align: center;
+	margin-left: 100px;
+	margin-top: 8px;
+		
+	font-size: 25px;
+	font-weight: 80px;
+	font-family: 돋움체;
+	font-weight: bold;
+	color: #f17136;
+}
+#main_menu > li > a:hover{
+	color: gray;
+}

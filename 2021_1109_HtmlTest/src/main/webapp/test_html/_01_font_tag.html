@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>Insert title here</title>
+			<!-- head tag사이에는 CSS 또는 Java script를 작성한다 -->
+			<!-- HTML 주석넣는것
+			 -->
+			 <style type="text/css">
+			 h1 {
+			 	border:1px solid red;
+			 	width : 250px;
+			 }
+			 font{
+			 border:1px solid green
+			 }
+			 </style>
+	</head>
+	<body> <!-- body : 본문작성하는곳 -->
+		<hr>
+		HeadLine Tag(h1 ~ h6) block 요소 (Element)<br>
+		1칸을 차지(1 body)(부모크기 상속)(자동줄바꿈)<br>
+		default 는 부모크기 상속, 크기 조절 가능
+		<hr>
+		<h1>h1 tag</h1>
+		<h2>h2 tag</h2>
+		<h3>h3 tag</h3>
+		<h4>h4 tag</h4>
+		<h5>h5 tag</h5>
+		<h6>h6 tag</h6>
+		<hr>
+		
+		
+		font tag : size( 1 ~ 7 ) inline요소(Element)<br>
+		<font color="red">웹표준에서는 사용하지 말것</font><br>
+		브라우저 마다 크기가 틀려질수 있음<br>
+		컨텐츠(내용) 크기 만큼만 크기 설정(크기 조정 불가)<br>
+		
+		
+		<hr>
+		<!-- size :attribute(속성) -->
+		<font size="1">font size 1<br></font><br>
+		<font size="2"	>font size 2</font><br>
+		<font size="3"	>font size 3</font><br>
+		<font size="4"	>font size 4</font><br>
+		<font size="5"	>font size 5</font><br>
+		<font size="6"	>font size 6</font><br>
+		<font size="7"	>font size 7</font><br>
+		
+		<hr>
+			font tag size의 해결방안 -> CSS사용<br>
+		<hr>
+		<!-- inline방식 CSS지정 -->
+		<p style="font-size: 15px;">크기 15px(장치크기에 따라 변함) </p>
+		<p style="font-size: 15pt;">크기 15pt(장치크기에 상관없이 고정) </p>
+
+	</body>
+</html>

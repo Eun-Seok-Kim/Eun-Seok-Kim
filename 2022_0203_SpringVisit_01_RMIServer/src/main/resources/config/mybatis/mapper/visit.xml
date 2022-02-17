@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="visit">
+
+<!--전체 조회--> 
+<select id="visit_list" resultType="visit">
+	select * from visit order by idx desc
+</select>
+<select id="visit_list_one" parameterType="int" resultType="visit">
+	select * from visit where idx=#{idx}
+</select>
+  <!-- insert,update,delete 는 ParameterType반드시 존재
+		resultType은 select만 있다.
+		VisitVo가 Parameter로 들어오면 #{parameter변수(속성명)}
+   -->
+<insert id="visit_insert" parameterType="visit">
+insert into visit values(
+			seq_visit_idx.nextVal, 
+			#{name} , 
+			#{content} , 
+			#{pwd} , 
+			#{ip} , 
+			sysdate)
+</insert>
+<delete id="visit_delete" parameterType="int">
+delete from visit where idx=#{idx}
+</delete>
+
+<update id="visit_update" parameterType="visit">
+update visit set name=#{name},
+				 content=#{content}, 
+				 pwd=#{pwd},
+				 ip=#{ip}, 
+				 regdate=sysdate 
+				 where idx=#{idx}
+</update>
+<select id="visit_condition_list" parameterType="Map" resultType="visit">
+	select * from visit 
+	
+	<trim prefix="where" prefixOverrides="or">
+		<if test="name!=null">
+			name like '%' || #{name} || '%'
+		</if>
+		<if test="content!=null">
+			or content like '%' || #{content} || '%'
+		</if>
+
+
+	</trim>
+	order by idx desc
+</select>
+
+
+
+</mapper>
+
+
+
+
+
+
+
+
+
+
+
+

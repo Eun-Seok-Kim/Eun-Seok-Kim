@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>Insert title here</title>
+		
+		<!--선언적 방식의 StyleSheet-->
+		<style type="text/css">
+		dt{
+			color : blue;
+			font-weight: bold;
+		}
+		dd{
+			color:#3333ff;  /* #rrggbb */
+		
+		}
+		</style>
+		<!--javascript 선언적 방식  -->
+<script type="text/javascript">
+	 //자바스크립트 주석은 자바컴파일이랑 똑같음
+	//title_change()선언
+	function title_change() {
+		//alert('call');
+		//document : javascript에서 HTML문서를 관리하는 객체
+		//자바스크립트에서는 문자열 표현 : "" , '' 둘다 가능
+		var title = prompt("내용입력하세요:","타이틀");
+		document.title="바뀐 제목";
+	 
+	 }
+
+
+</script>
+	</head>
+
+<body>
+
+	<hr>
+	Ordered List : 순서있는 목록
+	<hr>
+	<ol>
+		<li>하나</li>
+		<li>둘</li>
+		<li>셋</li>
+		<li>넷</li>		
+	</ol>	
+	<hr>
+	Unordered List : 순서가 없는 목록
+	<hr>
+	<ul style="list-style: upper-roman;">
+		<li>사과</li>
+		<li>참외</li>
+		<li>수박</li>
+	</ul>
+	<hr>
+	Dictionary List : 사전목록
+	<hr>
+	<dl>
+	<dt>HTML 이란?</dt> <!--dictionary title-->
+		<dd>HyperText Markup Languag로 Tag를 이용한 데이터 표현 언어</dd> <!--dictionary data-->
+	<dt>CSS란?</dt>
+		<dd>Cascade Style Sheet의 약자로 모양을 구성하는 언어</dd>
+	<dt>Javascript란?</dt>
+		<dd>Browser제어용 언어
+			<input type="button" value="제목바꿔줘" 
+					onclick="javascript:title_change();">
+			
+		</dd>
+		
+	
+	</dl>
+	
+
+</body>
+
+</html>

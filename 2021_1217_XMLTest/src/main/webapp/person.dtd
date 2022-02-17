@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--
+	[복수요소]
+	* : 0..n
+	+ : 1..n
+	? : 0 or 1
+	
+	필수 : #REQUIRED
+	선택 : #IMPLIED 
+
+-->
+
+<!ELEMENT root (person*) >
+	<!ELEMENT person (name,age,tel) >
+		<!ELEMENT name (#PCDATA)>
+			<!ATTLIST name nickname CDATA #REQUIRED>
+		<!ELEMENT age (#PCDATA)>
+		<!ELEMENT tel (#PCDATA)>	
+		    <!ATTLIST tel hometel CDATA #REQUIRED>

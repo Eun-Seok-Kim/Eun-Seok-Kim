@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="sawon">
+
+<!--전체 조회--> 
+<select id="sawon_list" resultType="vo.SawonVo">
+	select * from sawon
+</select>
+<!--부서별 조회-->
+<select id="sawon_list_deptno" parameterType="int" resultType="vo.SawonVo">
+<!--mapper parameter표현방법 : #{parameter명}
+								parmater가 단일값(int,String이면 변수명은 아무거나 가능
+-->
+	select * from sawon where deptno=#{deptno}
+</select>
+<!--직급별 조회-->
+<select id="sawon_list_sajob" parameterType="String" resultType="vo.SawonVo">
+	select * from sawon where sajob=#{sajob}
+</select>
+<!--부서,직급 조회-->
+<select id="sawon_list_deptno_sajob" parameterType="vo.SawonVo" resultType="vo.SawonVo">
+	select * from sawon where deptno=#{deptno} and sajob=#{sajob}
+</select>
+
+<!--Map에 검색조건을 담을 DanamicQuery
+	map key : deptno, sajob
+	map key를 parameter 변수로 이용 
+	-->
+<select id="sawon_list_map" parameterType="Map" resultType="vo.SawonVo">
+	select * from sawon 
+	
+	<trim prefix="where" prefixOverrides="and">
+		<if test="deptno!=null">
+			deptno = #{deptno}
+		</if>
+		<if test="sajob!=null">
+			and sajob = #{sajob}
+		</if>
+		<if test="sahire!=null">
+			and sahire = #{sahire}
+		</if>
+		<if test="year!=null">
+			and to_number(to_char(sahire,'YYYY'))=#{year}
+		</if>
+	</trim>
+</select>
+</mapper>
+
+
+
+
+
+
+
+
+
+
+
+

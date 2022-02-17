@@ -1,0 +1,25 @@
+@charset "UTF-8";
+/* class 는  . 으로 시작 */
+.submenu_style{
+	list-style: none;
+}
+.submenu_style > li > a{
+	/* 크기조절을 위해 block로 변경 */
+	display: block;
+	width: 150px;
+	
+	text-decoration: none;
+	text-indent: 20px; /* 들여쓰기 */
+	
+	font-size: 20px;
+	font-family: 휴먼고딕체;
+	font-weight: bold;
+	color : #b60cbf;
+	
+	margin-top: 70px;
+
+/* 	border: 1px solid red; */
+}
+.submenu_style > li > a:hover {
+	color : #989d00;
+	}

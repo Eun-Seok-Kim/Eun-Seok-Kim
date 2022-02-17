@@ -1,0 +1,5 @@
+//com.springsource.config.ui.prefs.activePageIndex\:/SpringAlCam/src/main/resources/config/spring/context/context-2-mybatis.xml=<?xml version\="1.0" encoding\="UTF-8"?>\r\n<activePage index\="0"/>
+//com.springsource.config.ui.prefs.activePageIndex\:/SpringAlCam/src/main/resources/config/spring/context/context-3-dao.xml=<?xml version\="1.0" encoding\="UTF-8"?>\r\n<activePage index\="0"/>
+//com.springsource.config.ui.prefs.activePageIndex\:/SpringAlCam/src/main/resources/config/spring/servlet/servlet-context.xml=<?xml version\="1.0" encoding\="UTF-8"?>\r\n<activePage index\="0"/>
+//com.springsource.config.ui.prefs.activePageIndex\:/SpringAlCam_test/src/main/resources/config/spring/servlet/servlet-context.xml=<?xml version\="1.0" encoding\="UTF-8"?>\r\n<activePage index\="0"/>
+eclipse.preferences.version=1

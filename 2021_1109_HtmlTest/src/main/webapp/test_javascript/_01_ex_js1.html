@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>Insert title here</title>
+<script type="text/javascript">
+	//Javascript coding위치
+	/*
+		1.자바스크립트 : 브라우져 제어용 언어 
+		2.출력방법
+			1)document.write("내용"); <= browser body에 출력
+			2)windows.alert("HTML이 아닌 일반 Text")
+			3)console.log("내용")		<=debug용
+			4)innerHTML = "내용(html code)"
+	*/
+	window.alert("반갑습니다\n또만나요"); //windows
+	document.write("안녕하세요 자바스크립트 입니다<br>");//document
+	document.write("안녕하세요 자바스크립트 입니다1");
+	document.write("안녕하세요 자바스크립트 입니다2<br>");
+	console.log("안녕하세요 콘솔입니다.")//console
+
+
+
+</script>
+		
+	</head>
+<body>
+<p id="p1">innerHTML부분</p>
+
+<script type="text/javascript">
+
+alert("내용변경");
+document.getElementById("p1").innerHTML = "p tag내용을 변경합니다.";
+
+
+</script>
+
+</body>
+</html>

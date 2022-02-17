@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>Insert title here</title>
+		<script type="text/javascript">
+
+		/* Javascript 자료형
+			String : 문자열형
+			Number : 숫자형
+			Date   : 날짜형
+			Boolean: 논리형
+		*/
+		/* 변수선언
+			var 변수명(많이씀)
+			let 변수명
+		int 변수명 -> 할수없음
+		*/
+		/* 넣는 값에 따라 변수의 자료형이 변경된다. */
+		var a;	//variant(가변자료형)
+		a = "안녕"; 	  //String
+		a = 10;		  	  //Number
+		a = new Date();	  //Date
+		a = true;		  //boolean
+		
+	//지역변수		전역변수
+	
+	//Javascript 함수(선언적 방식)
+	function myFunc()
+	{
+		var x = 10; //지역변수(local variable)myFunction 블록 안에서만 사용가능
+		global_x = 100 // var을 안붙이면 전역변수
+			
+	}
+	myFunc(); //함수내의 변수를 사용하기 위해서
+	//document.write(x); x 가 myFunction에서 선언된 지역변수이므로 사용 불가
+	document.write(global_x);
+	
+	
+		
+		</script>
+		
+		
+	</head>
+<body>
+
+</body>
+</html>

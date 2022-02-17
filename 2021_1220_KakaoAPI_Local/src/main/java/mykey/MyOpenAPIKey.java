@@ -1,0 +1,16 @@
+package mykey;
+
+public class MyOpenAPIKey {
+
+	public static class Naver{
+		//Naver Key
+		public static final String CLIENTID = "B6P5_6lUk9ZoZlmT93CT";
+		public static final String CLIENTSECRET = "8jHC8rFrhH";
+	}
+
+	public static class Daum{
+		//Daum(KakaAK) Key
+		//public static final String  KAKAOAK = "KakaoAK 3ebe1c7e586491e37bc04090f8d133b0";
+		public static final String  KAKAOAK = "KakaoAK 6b374997db253e62e6e35773bd3daf88";
+	}
+}

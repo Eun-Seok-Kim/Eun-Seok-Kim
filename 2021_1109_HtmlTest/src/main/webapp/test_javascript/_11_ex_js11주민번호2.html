@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style type="text/css">
+  span{
+     display: inline-block;
+     width:  150px;
+     text-indent: 20px;  /* 들여쓰기 20 */
+  }
+</style>
+
+
+<!-- 외부자바스크립트를 연결 -->
+<script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+<script type="text/javascript" src="../js/jumin_class.js"></script>
+
+<script type="text/javascript">
+	
+	var regular_jumin_no  = /\d{2}([0]\d|[1][0-2])([0][1-9]|[1-2]\d|[3][0-1])[-]*[0-9]\d{6}/;
+	
+	//var regular_jumin_no  = /^(?:[0-9]{2}(?:0[1-9]|1[0-2])(?:0[1-9]|[1,2][0-9]|3[0,1]))-[0-9][0-9]{6}$/;
+	
+	function show_result() {
+		
+		var jumin_no = document.getElementById("jumin_no").value;
+		
+		//정규식으로 주민번호 유효성 체크..(직접체크해보세요)
+		if(regular_jumin_no.test(jumin_no)==false){
+			
+			Swal.fire({
+				  icon: 'info',
+				  title: '형식의 맞지않는 주민번호',
+				  text: '다시 입력 하세요',
+				  footer: '<a href="">Why do I have this issue?</a>'
+				})
+			document.getElementById("jumin_no").value="";
+			document.getElementById("jumin_no").focus();
+			
+			return;
+		}
+		var jumin = new Jumin(jumin_no)
+		if(jumin.isValid()==true){	
+			Swal.fire({
+				  icon: 'info',
+				  title: '유효하지 않은 주민번호',
+				  text: '주민번호를 확인하세요',
+				  footer: '<a href="">Why do I have this issue?</a>'
+				})
+			document.getElementById("jumin_no").focus();
+			return;
+		}
+		
+		//Jumin class 객체생성
+		var jumin = new Jumin(jumin_no)
+		
+		//출생년도 구하기
+		var year = jumin.getYear();
+		var ganji= jumin.getGanji();
+		document.getElementById("span_year").innerHTML = year + "(" + ganji + ")";
+		//나이구하기
+		var age = jumin.getAge();
+		document.getElementById("span_age").innerHTML = age;
+		//띠
+		var tti = jumin.getTti();
+		document.getElementById("span_tti").innerHTML = tti;
+		
+		//성별
+		var gender = jumin.getGender();
+		document.getElementById("span_gender").innerHTML = gender;
+		
+		//계절
+		var season = jumin.getSeason();
+		document.getElementById("span_season").innerHTML = season;
+		
+		//지역
+		var local = jumin.getLocal();
+		document.getElementById("span_local").innerHTML = local;
+		
+		
+		
+	}
+
+</script>
+
+
+</head>
+<body>
+
+주민번호:<input id="jumin_no">
+         <input type="button"  value="결과보기" onclick="show_result();">
+<hr>
+<table border="1">
+   <caption>결과</caption>
+   <tr>
+      <th>출생년도</th>
+      <td><span id="span_year"></span></td>
+   </tr>
+   
+   <tr>
+      <th>나이</th>
+      <td><span id="span_age"></span></td>
+   </tr>
+   
+   <tr>
+      <th>띠</th>
+      <td><span id="span_tti"></span></td>
+   </tr>
+   
+   <tr>
+      <th>성별</th>
+      <td><span id="span_gender"></span></td>
+   </tr>
+   
+   <tr>
+      <th>출생계절</th>
+      <td><span id="span_season"></span></td>
+   </tr>
+   
+   <tr>
+      <th>출생지역</th>
+      <td><span id="span_local"></span></td>
+   </tr>
+   
+</table>
+          
+
+</body>
+</html>

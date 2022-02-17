@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+	<head>
+	<meta charset="UTF-8">
+	<title>Insert title here</title>
+<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+		<style type="text/css">
+		
+		#disp{
+			width: 300px;
+			height: 400px;
+			padding: 50px;
+			background: #dddddd;
+			color: black;
+		}
+		</style>
+			<script type="text/javascript">
+			$(document).ready(function(){
+				
+				$("#nation_song").change(function(){
+				var main_song = $(this).val();
+				console.log(main_song)
+				
+				if(main_song == ''){
+					$("#disp").css("background","#dddddd");
+					$("#disp").html("");		
+				}
+				if(main_song == 'song_1'){
+					$("#disp").css("background","red");
+					$("#disp").html("동해물과 백두산이<br>마르고 닳도록<br>하느님이 보우하사<br>우리나라 만세<br>무궁화 삼천리화려 강산<br>대한 사람 대한으로<br>길이 보전하세");		
+				};
+				
+				if(main_song == 'song_2'){
+					$("#disp").css("background","yellow");
+					$("#disp").html("남산 위에 저 소나무 철갑을 두른 듯<br>바람 서리 불변함은 우리 기상일세<br>무궁화 삼천리 화려 강산<br>대한 사람 대한으로 길이 보전하세");		
+				};
+			
+				if(main_song == 'song_3'){
+					$("#disp").css("background","green");
+					$("#disp").html("가을 하늘 공활한데 높고 구름 없이<br>밝은 달은 우리 가슴 일편단심일세<br>무궁화 삼천리 화려 강산<br>대한 사람 대한으로 길이 보전하세");		
+				};
+				
+				if(main_song == 'song_4'){
+					$("#disp").css("background","blue");
+					$("#disp").html("이 기상과 이 맘으로 충성을 다하여<br>괴로우나 즐거우나 나라 사랑하세<br>무궁화 삼천리 화려 강산<br>대한 사람 대한으로 길이 보전하세");		
+				};
+				});
+			});//jQurey끝
+			</script>
+	</head>
+<body>
+애국가 : <select id="nation_song">
+			<option value="">::애국가 선택::</option>
+			<option value="song_1">애국가 1절</option>
+			<option value="song_2">애국가 2절</option>
+			<option value="song_3">애국가 3절</option>
+			<option value="song_4">애국가 4절</option>
+		</select>
+	<hr>
+	<div id="disp"></div>
+</body>
+</html>

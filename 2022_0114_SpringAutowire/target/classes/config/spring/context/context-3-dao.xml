@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans https://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.3.xsd">
+	
+	<!-- Root Context: defines shared resources visible to all other web components -->
+	<!-- constructor Injection-->
+	<!-- 해당 Bean을 수동생성시 autowire기능은 처리되지 않는다 
+		 조치 : <context:annotation-config/>
+		 - 아래 Namespaces 탭에서 context 박스체크
+	-->
+	<!-- @AutoWired 지원속성 -->
+	<context:annotation-config/>
+	<!-- autowire 속성 : byType  : bean 객체중 자료형이 일치하는객체를 연결
+						 byName  : 이름이 일치하는 객체를 연결
+						 default : byType > byName를 찾아서 연결
+						 		Type후 결과가 에매할경우 Name로 연결
+	-->
+	<bean id="dept_dao" class="dao.DeptDaoImpl" autowire="default">	
+	</bean>
+</beans>

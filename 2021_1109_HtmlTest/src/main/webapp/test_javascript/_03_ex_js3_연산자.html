@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+		<meta charset="UTF-8">
+		<title>Insert title here</title>
+		
+		
+		
+	<script type="text/javascript">
+	//연산자는 java 동일함
+	
+	//3항연산자 (조건) ? (참)값1 : 값2
+	
+	var a=10; var b=2; var res;
+	
+	res = a + b;
+	document.write(a + " + " + b + " = " + res +  "<br>");
+	
+	res = a > b;
+	document.write(a + " > " + b + " = " + res +  "<br>");
+	
+	res = a>> b;
+	document.write(a + " >> " + b + " = " + res +  "<br>");
+	
+	document.write(10/4 + "<br>");
+	
+	res = a & b;
+	document.write(a + " & " + b + " = " + res +  "<br>");
+	
+	res = (a>b) ? a: b;
+	document.write(a + " , " + b + " 수중에 큰 수는 " + res +  "<br>");
+	
+	var year = 2016;
+	var result;
+	if( (year%400==0) || (year%4==0 && year%100 !=0 )) result = "윤년";
+	else
+		result ="평년";
+	
+	document.write(year + " 은 " + result + "입니다" +  "<br>");
+	
+	
+	</script>
+	</head>
+<body>
+
+</body>
+</html>

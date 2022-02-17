@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>Insert title here</title>
+
+<script type="text/javascript">
+
+document.write("<table border='1' >");//테이블열고 외곽선 주기
+for(j=0;j<=9;j++){
+	document.write("<tr>")
+	for(var i=2; i<=9;i++){
+		if(j==0){
+			document.write("<th>" + i + "단</th>");
+		}else{
+		document.write("<td>");//행열 열기
+		
+		document.write(i + "x" + j + " = " + (j*i));
+		document.write("</td>"); //행열 닫기
+		}
+	}	
+	document.write("</tr>")
+	
+	
+}
+
+document.write("</table>");//테이블닫기
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</script>
+		
+		
+		
+		
+	</head>
+<body>
+
+</body>
+</html>

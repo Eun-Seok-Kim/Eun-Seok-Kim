@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>Insert title here</title>
+		<script type="text/javascript">
+		//정규 표현식(Regular Expression)
+		// ^ ^문자 < 문자로 시작
+		// $ : 문자$ < 문자로 끝
+		//[] : 대괄호 안의 문자중 1개
+		// ? : 0 or 1
+		//* : 0...n
+		//+ : 1..n 번 반복
+	
+		/* 
+		자바 스크립트 코딩시 주의사항
+		1. {} 관리 철저하게 해야함
+		2. 함수 호출시 () 누란되면 안된다(에러가 안보임)
+		3. 오타
+			1) 대소문자 구분해야함
+			2) 철자틀린경우
+		
+		
+		
+		*/
+		var regular_number = /^[0-99]+$/;
+		function plus(){
+			//id=su1인 컨트롤의 참조변수
+			var su1_ctrl = document.getElementById("su1");
+			//su1_ctrl.style.display='none';//hide 참조변수만 알면 제어가능
+			var su1 = su1_ctrl.value;
+			//alert(su1);		
+			var su2 = document.getElementById("su2").value;		
+			
+			//숫자정규식에 만족하냐
+			if(regular_number.test(su1)==false){
+				alert("숫자만 입력");
+				document.getElementById("su1").value=''; //값지우기
+				document.getElementById("su1").focus();
+				return;
+				
+				if(regular_number.test(su2)==false){
+					alert("숫자만 입력");
+					document.getElementById("su2").value=''; //값지우기
+					document.getElementById("su2").focus();
+					return;
+					
+				}		
+			}			
+			//문자를 -> 숫자로 변환
+			//방법1
+				su1 = parseInt(su1);
+				su2 = parseInt(su2);
+			//방법2
+				//su1=Number(su1);
+				//su2=Number(su2);			
+			//입력값 2수를 더한다
+			var result = su1 + su2;
+			//더한값을 id로 넣는다
+			document.getElementById("result").value = result;
+		}
+		
+		function minus(){
+			//id=su1인 컨트롤의 참조변수
+			var su1_ctrl = document.getElementById("su1");
+			//su1_ctrl.style.display='none';//hide 참조변수만 알면 제어가능
+			var su1 = su1_ctrl.value;
+			//alert(su1);		
+			var su2 = document.getElementById("su2").value;
+			//문자를 -> 숫자로 변환
+			//방법1
+				su1 = parseInt(su1);
+				su2 = parseInt(su2);
+			//입력값 2수를 뺀다
+			var result = su1 - su2;
+			//더한값을 id로 넣는다
+			document.getElementById("result").value = result;
+		}
+		function multply(){
+			//id=su1인 컨트롤의 참조변수
+			var su1_ctrl = document.getElementById("su1");
+			//su1_ctrl.style.display='none';//hide 참조변수만 알면 제어가능
+			var su1 = su1_ctrl.value;
+			//alert(su1);		
+			var su2 = document.getElementById("su2").value;
+			//문자를 -> 숫자로 변환
+			//방법1
+				su1 = parseInt(su1);
+				su2 = parseInt(su2);
+			//입력값 2수를 뺀다
+			var result = su1 * su2;
+			//더한값을 id로 넣는다
+			document.getElementById("result").value = result;
+		}
+		function divide(){
+			//id=su1인 컨트롤의 참조변수
+			var su1_ctrl = document.getElementById("su1");
+			//su1_ctrl.style.display='none';//hide 참조변수만 알면 제어가능
+			var su1 = su1_ctrl.value;
+			//alert(su1);		
+			var su2 = document.getElementById("su2").value;
+			//문자를 -> 숫자로 변환
+			//방법1
+				su1 = parseInt(su1);
+				su2 = parseInt(su2);
+			//입력값 2수를 뺀다
+			var result = su1 / su2;
+			//더한값을 id로 넣는다
+			document.getElementById("result").value = result;
+		}
+		function remain(){
+			//id=su1인 컨트롤의 참조변수
+			var su1_ctrl = document.getElementById("su1");
+			//su1_ctrl.style.display='none';//hide 참조변수만 알면 제어가능
+			var su1 = su1_ctrl.value;
+			//alert(su1);		
+			var su2 = document.getElementById("su2").value;
+			//문자를 -> 숫자로 변환
+			//방법1
+				su1 = parseInt(su1);
+				su2 = parseInt(su2);
+			//입력값 2수를 뺀다
+			var result = su1 % su2;
+			//더한값을 id로 넣는다
+			document.getElementById("result").value = result;
+		}
+		function pow(){
+			//id=su1인 컨트롤의 참조변수
+			var su1_ctrl = document.getElementById("su1");
+			//su1_ctrl.style.display='none';//hide 참조변수만 알면 제어가능
+			var su1 = su1_ctrl.value;
+			//alert(su1);		
+			var su2 = document.getElementById("su2").value;
+			//문자를 -> 숫자로 변환
+			//방법1
+				su1 = parseInt(su1);
+				su2 = parseInt(su2);
+			//입력값 2수 누적곱
+			var result = Math.pow(su1,su2);
+						//su1 ** su2;
+			//더한값을 id로 넣는다
+			document.getElementById("result").value = result;
+		}
+		</script>
+	</head>
+<body>
+수1 : <input id ="su1"><br>
+수2 : <input id ="su2"><br>
+
+<input type ="button" value="+" onclick="plus();">
+<input type ="button" value="-" onclick="minus();">
+<input type ="button" value="*" onclick="multply();">
+<input type ="button" value="/" onclick="divide();">
+<input type ="button" value="%" onclick="remain();">
+<input type ="button" value="**" onclick="pow();">
+<br>
+결과 : <input id="result">
+
+</body>
+</html>

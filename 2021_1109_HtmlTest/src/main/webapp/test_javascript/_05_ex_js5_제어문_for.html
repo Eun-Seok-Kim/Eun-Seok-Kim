@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>Insert title here</title>
+		<script type="text/javascript">
+		
+		var dan = window.prompt("단");
+		
+		if( dan<2 || dan>9){
+			alert("2 ~ 9사이 갑만 입력하세요")
+		}else{
+			
+			document.write("<table border='1' width='150'>");//테이블열고 외곽선 주기
+			document.write("<caption>" + dan + "단 보기</caption>");//캔션달기
+			for(var i=1; i<=9;i++){
+				document.write("<tr><td>");//행열 열기
+			document.write(dan + "x" + i + " = " + (dan*i) + "<br>");
+				document.write("</tr></td>");//행열 닫기
+		
+			}
+			document.write("</table>")//테이블닫기
+		}
+	
+		</script>
+		
+	</head>
+<body>
+
+</body>
+</html>

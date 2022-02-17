@@ -1,0 +1,31 @@
+@charset "UTF-8";
+
+*{margin:0;}
+ul#sub_menu{
+	list-style: none;
+}
+
+
+ul#sub_menu > li > a{
+	text-decoration: none;
+	border: 1px solid green;
+	display: block;
+	width: 70px;
+	/* 텍스트 가운데 정렬 */
+	text-align:center;	
+	/* 외부간격 설정 */
+	margin-top: 10px;
+	margin-left: 10px;
+	
+	/*font지정 */
+	font-size: 8pt;
+	font-weight: bold;
+	color: #3ac53a;
+}
+ul#sub_menu > li > a:hover{
+	border:1px solid black;
+	color: green;
+	box-shadow: 1px 1px 2px black;
+	
+	
+}

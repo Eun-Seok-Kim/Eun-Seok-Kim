@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>Insert title here</title>
+<style type="text/css">
+#disp{
+	width: 300px;
+	min-height: 300px;
+	height: auto;
+	padding:30px;
+	background: black;
+	color: white;
+}
+</style>
+<!-- ajax 연결 -->
+<script type="text/javascript" src="js/httpRequest.js"></script>
+<script type="text/javascript">
+
+
+function search() {
+	var question = document.getElementById("question").value.trim();
+	if(question==''){
+		alert('검색어를 입력하세요')
+		document.getElementById("question").value="";
+		document.getElementById("question").focus();
+		return;
+	}
+	
+	//location.href="answer.do?question=" + question;
+	
+	var url = "answer.do";
+	var param = "question=" + question;
+	//httpRequest.js내에 구현되어있는 사용자함수
+	sendRequest(url, param, resultFn,"GET");
+}
+	//Ajax객체가 콜백받는 함수 지정
+	function resultFn() {
+		console.log("xhr.readyState:"+xhr.readyState + "  xhr.status:" + xhr.status);
+		if(xhr.readyState==4 && xhr.status==200){
+			var data = xhr.responseText;
+			document.getElementById("disp").innerHTML = data;
+		}
+		
+	}
+
+</script>
+	</head>
+<body>
+
+	알고싶은 것  : <input id="question">
+					 <input type="button" value="확인" onclick="search();">
+<hr>
+<div id="disp"></div>
+	
+</body>
+</html>

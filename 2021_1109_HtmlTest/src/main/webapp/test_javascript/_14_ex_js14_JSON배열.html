@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>Insert title here</title>
+		<script type="text/javascript">
+		
+		var p_array = [
+						{"name":"일길동","age":"31","addr":"서울시 관악구 시흥대로1"},
+						{"name":"이길동","age":"32","addr":"서울시 관악구 시흥대로2"},
+						{"name":"삼길동","age":"33","addr":"서울시 관악구 시흥대로3"},
+					   ];
+		
+		
+		//push > 배열의 마지막에 데이터 추가
+		p_array.push({"name":"사길동","age":"34","addr":"서울시 관악구 시흥대로4"});
+		
+		//내가쓴거
+		document.write("-----전체----<br>");
+		for(var i=0; i<p_array.length;i++){
+		document.write(p_array[i].name + " ");
+		document.write(p_array[i].age + " ");
+		document.write(p_array[i].addr + "<br>");			
+		}
+		//강사님쓴거		
+		document.write("-----전체----<br>");
+		for(var i=0; i<p_array.length;i++){
+			var p = p_array[i]
+			document.write("이름 : " + p.name + " ");
+			document.write("나이 : " + p.age +"세"+ " ");	
+			document.write("주소 : " + p.addr + "<br>");	
+		}
+		
+		
+		
+		</script>
+	</head>
+<body>
+
+</body>
+</html>
